@@ -23,41 +23,40 @@ password: String
 **validatePassword: String
 
 Routes: 
-(I might need to add more, there are quite a few to keep track of. And it was weird doing this out of context...)
+
 sign-in:
-GET /signin shows sign-in page
-POST /signin allows users to sign-in with their info
+GET /signin - shows sign-in page
+POST /signin - allows users to sign-in with their info
 
 sign-up:
 GET /signup shows sign-up page
 POST /signup allows users to sign-up
 
 sign-out:
-GET /signout (use session.destroy) stops the current user session
+GET /signout (use session.destroy) - stops the current user session
 
 skills:
-GET /skills allows users to see the skill index page
+GET /skills - allows users to see the skill index page
 
-skill practice: (would these even work this way?... guess I'll find out xD)
-GET /skills/:id/practice allows users to see the practice index page
-GET /skills/:id/practice/new allows users to see the add practice page
-POST /skills/:id/practice creates the new item on the practice list
-GET /skills/:id/practice/:id/edit  allows users to see the edit page
-PUT /skills/:id/practice/:id  updates the edited content from the user
-DELETE /skills/:id/practice/:id deletes the selected item
+skill practice:
+GET /skills/:id/practice - allows users to see the practice index page
+GET /skills/:id/practice/new - allows users to see the add practice page
+POST /skills/:id/practice - creates the new item on the practice list
+GET /skills/:id/practice/:id/edit  - allows users to see the edit page
+PUT /skills/:id/practice/:id  - updates the edited content from the user
+DELETE /skills/:id/practice/:id - deletes the selected item
 
 
 skill practice show:
-GET /skills/:id/practice/:id allows users to see the challenge page
+GET /skills/:id/practice/:id - allows users to see the challenge page
 ** not new routes, just new links
-GET /skills/:id/practice/:id/edit  allows users to see the edit page
-PUT /skills/:id/practice/:id  updates the edited content from the user
-DELETE /skills/:id/practice/:id deletes the selected item
+GET /skills/:id/practice/:id/edit  - allows users to see the edit page
+PUT /skills/:id/practice/:id  - updates the edited content from the user
+DELETE /skills/:id/practice/:id - deletes the selected item
 **
 
 ## Wireframes
 > Wireframes with basic page layouts<br />
-> Copy and paste or drag and drop your images here.
 
 ![IMG_2942](https://media.git.generalassemb.ly/user/36461/files/1f09fc80-1b29-11ec-8102-b6b0552b953b)
 ![IMG_2943](https://media.git.generalassemb.ly/user/36461/files/2204ed00-1b29-11ec-8f58-fdd28062e9c1)
@@ -66,7 +65,6 @@ DELETE /skills/:id/practice/:id deletes the selected item
 
 ## User Stories
 > User stories detailing app functionality<br />
-> Add user stories following the _As a [type of user], I want [what the user wants], so that [what it helps accomplish]_ format.
 
 - As a user, I want to be able to access a skill challenge so that I can improve my skills.
 - As a user, I want to be able to create my own skill challenges, so that I can work on the things I need.
