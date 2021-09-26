@@ -24,6 +24,22 @@ router.get('/', (req, res) => {
     })
 })
 
+// Create Route
+router.get('/new', (req, res) => {
+    res.render('new.ejs')
+})
+
+// Post Route for Created Challenge
+router.post('/', (req, res) => {
+    Challenges.create(req.body,(err, createdChallenge) => {
+        if (err) {
+            res.send(err)
+        } else {
+            res.redirect('/challenge')
+        }
+    })
+})
+
 // Show Route
 router.get('/:id', (req, res) => {
     Challenges.findById(req.params.id,(err, foundChallenge) => {
