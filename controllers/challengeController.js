@@ -77,4 +77,15 @@ router.put('/:id/edit', (req, res) => {
         })
 })
 
+// Delete Route
+router.delete('/:id', (req, res) => {
+    Challenges.findByIdAndDelete(req.params.id, (err, challengeToDelete) => {
+        if (err) {
+            res.send(err)
+        } else {
+            res.redirect('/challenge')
+        }
+    })
+})
+
 module.exports = router
