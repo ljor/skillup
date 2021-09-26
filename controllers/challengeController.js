@@ -24,4 +24,13 @@ router.get('/', (req, res) => {
     })
 })
 
+// Show Route
+router.get('/:id', (req, res) => {
+    Challenges.findById(req.params.id,(err, foundChallenge) => {
+        res.render('show.ejs', {
+            challenge: foundChallenge
+        })
+    })
+})
+
 module.exports = router

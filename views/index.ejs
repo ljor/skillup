@@ -9,7 +9,7 @@
 
     <ul>
         <% for (let i = 0; i < challenges.length; i++){ %>
-            <li><%= challenges[i].name %></li>
+            <li><a href="/challenge/<%=challenges[i].id%>"><%= challenges[i].name %></a></li>
         <% } %>
     </ul>
 </body>
