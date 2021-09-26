@@ -9,7 +9,10 @@
 
     <ul>
         <% for (let i = 0; i < challenges.length; i++){ %>
-            <li><a href="/challenge/<%=challenges[i].id%>"><%= challenges[i].name %></a></li>
+            <li><a href="/challenge/<%=challenges[i].id%>"><%= challenges[i].name %></a><br>
+                <a href="/challenge/<%=challenges[i].id%>/edit">Edit</a>
+            </li>
+            <br>
         <% } %>
     </ul>
     <p>Have a challenge idea? Add one here: <a href="/challenge/new">Create A New Challenge</a></p>

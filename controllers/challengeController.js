@@ -29,7 +29,7 @@ router.get('/new', (req, res) => {
     res.render('new.ejs')
 })
 
-// Post Route for Created Challenge
+// Post Route for created challenge
 router.post('/', (req, res) => {
     Challenges.create(req.body,(err, createdChallenge) => {
         if (err) {
@@ -47,6 +47,34 @@ router.get('/:id', (req, res) => {
             challenge: foundChallenge
         })
     })
+})
+
+// Edit Route
+router.get('/:id/edit', (req, res) => {
+    Challenges.findById(req.params.id, (err, challengeToEdit) => {
+        if(err) {
+            res.send(err)
+        } else {
+            res.render('edit.ejs', {
+                challenge: challengeToEdit
+            })
+        }
+    })
+})
+
+// Put Route for challenge edit
+router.put('/:id/edit', (req, res) => {
+    Challenges.findByIdAndUpdate(
+        req.params.id, 
+        req.body, 
+        {new: true},
+        (err, updatedChallenge) => {
+        if (err) {
+            res.send(err)
+        } else {
+            res.redirect(`/challenge/${req.params.id}`)
+        }
+        })
 })
 
 module.exports = router
