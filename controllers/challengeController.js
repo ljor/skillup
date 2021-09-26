@@ -9,10 +9,19 @@ const seedData = require('../models/webDevSeed')
 router.get('/seed', async (req, res) => {
     try { 
         const seedItems = await Challenges.create(seedData)
-        res.redirect('/challenges')
+        res.redirect('/challenge')
        } catch (err) {
            res.send(err.message)
        }
+})
+
+// Index Route
+router.get('/', (req, res) => {
+    Challenges.find({}, (err, allChallenges) => {
+        res.render('index.ejs', {
+            challenges: allChallenges
+        })
+    })
 })
 
 module.exports = router

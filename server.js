@@ -6,6 +6,10 @@ require('dotenv').config()
 
 const PORT = process.env.PORT
 
+// Models
+const Challenges = require('./models/challenges')
+const seedData = require('./models/webDevSeed')
+
 // Database Setup
 const mongoURI = process.env.MONGODB_URI
 const db = mongoose.connection
