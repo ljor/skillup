@@ -29,6 +29,8 @@ app.use(express.urlencoded({extended: false}))
 app.use(methodOverride('_method'))
 
 // Controllers
+const challengeController = require('./controllers/challengeController.js')
+app.use('/challenge', challengeController)
 
 // Listener
 app.listen(PORT, () => {
