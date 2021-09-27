@@ -35,6 +35,8 @@ app.use(methodOverride('_method'))
 // Controllers
 const challengeController = require('./controllers/challengeController.js')
 app.use('/challenge', challengeController)
+const userController = require('./controllers/userController')
+ app.use('/login', userController)
 
 // Listener
 app.listen(PORT, () => {

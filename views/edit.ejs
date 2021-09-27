@@ -7,16 +7,16 @@
     <h1>Update <%= challenge.name %></h1>
     <form action="/challenge/<%=challenge.id%>/edit?_method=PUT" method="POST">
         <label for="name">Name of Challenge:</label>
-        <input type="text" name="name" required="true" value="<%=challenge.name%>"> <br><br>
+        <input type="text" name="name" value="<%=challenge.name%>" required> <br><br>
 
         <label for="description">Brief Description of Challenge:</label>
         <input type="text" name="description" value="<%=challenge.description%>"> <br><br>
 
         <label for="challenge">Challenge Details:</label>
-        <input type="text" name="challenge" required="true" value="<%=challenge.challenge%>"> <br><br>
+        <input type="text" name="challenge" value="<%=challenge.challenge%>" required> <br><br>
 
         <label for="skill">Challenge Category:</label>
-        <input type="text" name="skill" required="true" value="<%=challenge.skill%>"> <br><br>
+        <input type="text" name="skill" value="<%=challenge.skill%>" required> <br><br>
     
     <input type="submit" value="Update Challenge">
     </form>
