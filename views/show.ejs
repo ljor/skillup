@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>SkillUP!</title>
-</head>
+<%- include('./partials/header.ejs') %>
 <body>
     <h1><%= challenge.name %></h1>
     <h2><%= challenge.description %></h2>
@@ -11,5 +7,5 @@
     <p><%= challenge.challenge %></p>
 
     <a href="/challenge">Return to Challenges</a>
-</body>
-</html>
+
+<%- include('./partials/footer.ejs') %>

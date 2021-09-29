@@ -1,24 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>SkillUP!</title>
-</head>
+<%- include('./partials/header.ejs') %>
 <body>
-    <h1>Challenges</h1>
-    <h3>Practice and hone your skills through projects.</h3>
+    <%- include('./partials/navbar.ejs') %>
+    <div class="center-align">
+        <h1>Challenges</h1>
+        <h4>Practice and hone your skills through projects.</h4>
 
-    <ul>
-        <% for (let i = 0; i < challenges.length; i++){ %>
-            <li><a href="/challenge/<%=challenges[i].id%>"><%= challenges[i].name %></a><br>
-                <form action="/challenge/<%= challenges[i].id %>?_method=DELETE" method="POST">
-                    <a href="/challenge/<%=challenges[i].id%>/edit">Edit</a>
-                    <input type="submit" value="Delete">
-                </form>
-            </li>
-            </li>
-            <br>
-        <% } %>
-    </ul>
-    <p>Have a challenge idea? Add one here: <a href="/challenge/new">Create A New Challenge</a></p>
-</body>
-</html>
+        <ul>
+            <% for (let i = 0; i < challenges.length; i++){ %>
+                <li><a href="/challenge/<%=challenges[i].id%>"><%= challenges[i].name %></a><br>
+                    <form action="/challenge/<%= challenges[i].id %>?_method=DELETE" method="POST">
+                        <a href="/challenge/<%=challenges[i].id%>/edit">Edit</a>
+                        <input type="submit" value="Delete">
+                    </form>
+                </li>
+                <br>
+            <% } %>
+        </ul>
+        <p>Have a challenge idea? <a href="/challenge/new">Create A New Challenge</a></p>
+    </div>
+    <%- include('./partials/footer.ejs') %>
