@@ -23,15 +23,18 @@ router.post('/register', (req, res) => {
     if(req.body.password !== req.body.password2) {
         console.log('passwords did not match')
     } else {
-        User.register(new User({username: req.body.username, email: req.body.email}, req.body.password, (err, user) => {
+        User.register({username: req.body.username, email: req.body.email}, req.body.password, (err, user) => {
             if (err) {
-                return res.render('register')
+                return res.render('/register')
             }
             passport.authenticate('local')(req, res, () => {
                 res.redirect('/challenge')
             })
-        }))
+        })
     }
 })
 
 module.exports = router
+
+// User.register({username: 'red', email: 'red@gmail.com'}, 'xklznrzpgu')
+// User.register({username: 'green', email: 'green@gmail.com'}, 'afdgfdsr')
