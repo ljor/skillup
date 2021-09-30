@@ -1,21 +1,25 @@
 <%- include('./partials/header.ejs') %>
 <body>
-    <%- include('./partials/navbar.ejs') %>
-    <div class="center-align">
-        <h1>Challenges</h1>
-        <h4>Practice and hone your skills through projects.</h4>
-
-        <ul>
-            <% for (let i = 0; i < challenges.length; i++){ %>
-                <li><a href="/challenge/<%=challenges[i].id%>"><%= challenges[i].name %></a><br>
-                    <form action="/challenge/<%= challenges[i].id %>?_method=DELETE" method="POST">
-                        <a href="/challenge/<%=challenges[i].id%>/edit">Edit</a>
-                        <input type="submit" value="Delete">
-                    </form>
-                </li>
-                <br>
-            <% } %>
-        </ul>
-        <p>Have a challenge idea? <a href="/challenge/new">Create A New Challenge</a></p>
+    <div id="cirlce-splash">
+        <img src="/images/SkillUP-grey.png" alt="SkillUp" id="login-logo">
+        <h3>Improve skills through practice.</h3>
     </div>
-    <%- include('./partials/footer.ejs') %>
+    <div id="login">
+        <h2>Log In</h2>
+        <% if (messages.error) {
+            messages.error
+        }
+        %>
+        <form action="/" method="POST">
+            <label for="email">Email: </label>
+            <input type="email" name="email" placeholder="Enter Email" required> <br><br>
+
+            <label for="password">Password:</label>
+            <input type="password" name="password" placeholder="Enter Password" required> <br><br>
+        
+        <input type="submit" value="Login">
+        </form>
+        <a href="/register">Register</a>
+    </div>
+</body>
+</html>

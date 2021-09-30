@@ -7,6 +7,6 @@ const challengeSchema = new mongoose.Schema({
     skill: {type: String, required: true}
 })
 
-const Challenges = mongoose.model('Challenges', challengeSchema)
+const Challenge = mongoose.model('Challenge', challengeSchema)
 
-module.exports = Challenges
+module.exports = Challenge

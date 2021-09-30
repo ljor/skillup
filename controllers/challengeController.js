@@ -2,23 +2,23 @@ const express = require('express')
 const router = express.Router()
 
 // Models
-const Challenges = require('../models/challenges')
+const Challenge = require('../models/challenge')
 const seedData = require('../models/webDevSeed')
 
 // Seed Route
 router.get('/seed', async (req, res) => {
     try { 
-        const seedItems = await Challenges.create(seedData)
+        const seedItems = await Challenge.create(seedData)
         res.redirect('/challenge')
        } catch (err) {
            res.send(err.message)
        }
 })
 
-// Index Route
+// Challenges Index Route
 router.get('/', (req, res) => {
-    Challenges.find({}, (err, allChallenges) => {
-        res.render('index.ejs', {
+    Challenge.find({}, (err, allChallenges) => {
+        res.render('challenges.ejs', {
             challenges: allChallenges
         })
     })
@@ -31,7 +31,7 @@ router.get('/new', (req, res) => {
 
 // Post Route for created challenge
 router.post('/', (req, res) => {
-    Challenges.create(req.body,(err, createdChallenge) => {
+    Challenge.create(req.body,(err, createdChallenge) => {
         if (err) {
             res.send(err)
         } else {
@@ -42,7 +42,7 @@ router.post('/', (req, res) => {
 
 // Show Route
 router.get('/:id', (req, res) => {
-    Challenges.findById(req.params.id,(err, foundChallenge) => {
+    Challenge.findById(req.params.id,(err, foundChallenge) => {
         res.render('show.ejs', {
             challenge: foundChallenge
         })
@@ -51,7 +51,7 @@ router.get('/:id', (req, res) => {
 
 // Edit Route
 router.get('/:id/edit', (req, res) => {
-    Challenges.findById(req.params.id, (err, challengeToEdit) => {
+    Challenge.findById(req.params.id, (err, challengeToEdit) => {
         if(err) {
             res.send(err)
         } else {
@@ -64,7 +64,7 @@ router.get('/:id/edit', (req, res) => {
 
 // Put Route for challenge edit
 router.put('/:id/edit', (req, res) => {
-    Challenges.findByIdAndUpdate(
+    Challenge.findByIdAndUpdate(
         req.params.id, 
         req.body, 
         {new: true},
@@ -79,7 +79,7 @@ router.put('/:id/edit', (req, res) => {
 
 // Delete Route
 router.delete('/:id', (req, res) => {
-    Challenges.findByIdAndDelete(req.params.id, (err, challengeToDelete) => {
+    Challenge.findByIdAndDelete(req.params.id, (err, challengeToDelete) => {
         if (err) {
             res.send(err)
         } else {
