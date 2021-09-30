@@ -1,18 +1,16 @@
 <%- include('./partials/header.ejs') %>
-<body>
+<body id="landing-body">
     <div id="cirlce-splash">
         <img src="/images/SkillUP-grey.png" alt="SkillUp" id="login-logo">
         <h3>Improve skills through practice.</h3>
     </div>
     <div id="login">
         <h2>Log In</h2>
-        <% if (messages.error) {
-            messages.error
-        }
-        %>
+        <p><%= message.error %></p>
+        <p><%= message.success %></p>
         <form action="/" method="POST">
-            <label for="email">Email: </label>
-            <input type="email" name="email" placeholder="Enter Email" required> <br><br>
+            <label for="username">Username: </label>
+            <input type="text" name="username" placeholder="Enter Name" required> <br><br>
 
             <label for="password">Password:</label>
             <input type="password" name="password" placeholder="Enter Password" required> <br><br>

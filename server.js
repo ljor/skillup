@@ -2,9 +2,12 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 const methodOverride = require('method-override')
-const passport = require('passport')
+const passport = require('passport') 
+// const LocalStrategy = require('passport-local')
 const flash = require('express-flash')
 const session = require('express-session')
+const connectEnsureLogin = require('connect-ensure-login')
+// const passportLocalMongoose = require('passport-local-mongoose')
 require('dotenv').config()
 
 // const initializePassport = require('./config/passport')
@@ -16,7 +19,7 @@ require('dotenv').config()
 // }
 // )
 
-require('./config/passport')
+// require('./config/passport')
 
 const PORT = process.env.PORT
 
@@ -42,19 +45,30 @@ db.on('disconnected', () => {console.log('Mongo disconnected')})
 
 // Middleware
 app.use(express.static('public'))
-app.use(express.urlencoded({extended: false}))
-app.use(methodOverride('_method'))
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUnitialized: false
+    saveUnitialized: false,
+    // cookie: {maxAge: 60 * 60 * 1000}
 }))
+app.use(express.urlencoded({extended: false}))
 app.use(passport.initialize())
 app.use(passport.session())
 app.use(flash())
+app.use(methodOverride('_method'))
+app.use((req, res, next) => {
+    res.locals.message = req.flash();
+    next()
+})
 
+ // Passport Local Strategy
+ passport.use(User.createStrategy())
 
-// Controllers
+ // Sessions
+ passport.serializeUser(User.serializeUser())
+ passport.deserializeUser(User.deserializeUser())
+
+ // Controllers
 const challengeController = require('./controllers/challengeController.js')
 app.use('/challenge', challengeController)
 const userController = require('./controllers/userController')

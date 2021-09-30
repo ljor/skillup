@@ -1,8 +1,10 @@
 <%- include('./partials/header.ejs') %>
 <h1>Register</h1>
+        <p><%= message.error %></p>
+        <p><%= message.success %></p>
     <form action="/register" method="POST">
-        <label for="name">Name: </label>
-        <input type="text" name="name" placeholder="Enter Name" value="<%= typeof name != 'undefined' ? name : '' %>"required> <br><br>
+        <label for="username">Userame: </label>
+        <input type="text" name="username" placeholder="Enter Username" value="<%= typeof name != 'undefined' ? name : '' %>"required> <br><br>
 
         <label for="email">Email:</label>
         <input type="email" name="email" placeholder="Enter Email" value="<%= typeof email != 'undefined' ? email : '' %>" required> <br><br>
