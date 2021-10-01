@@ -1,21 +1,35 @@
 <%- include('./partials/header.ejs') %>
-<h1>Register</h1>
-        <p><%= message.error %></p>
-        <p><%= message.success %></p>
-    <form action="/register" method="POST">
-        <label for="username">Userame: </label>
-        <input type="text" name="username" placeholder="Enter Username" value="<%= typeof name != 'undefined' ? name : '' %>"required> <br><br>
+<body>
+    <nav>
+        <div class="nav-wrapper teal ligthen-2">
+          <a href="/" class="brand-logo"><img src="/images/SkillUP-white.png" alt="SkillUp" id="nav-logo"></a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
 
-        <label for="email">Email:</label>
-        <input type="email" name="email" placeholder="Enter Email" value="<%= typeof email != 'undefined' ? email : '' %>" required> <br><br>
+            <li><a href="/login">Login</a></li>
+          </ul>
+        </div>
+      </nav>
+    <main>
+        <div class="container">
+        <h1>Register</h1>
+            <p><%= message.error %></p>
+            <p><%= message.success %></p>
+            <form action="/register" method="POST">
+                <label for="username">Userame: </label>
+                <input type="text" name="username" placeholder="Enter Username" value="<%= typeof name != 'undefined' ? name : '' %>"required> <br><br>
 
-        <label for="password">Password:</label>
-        <input type="password" name="password" placeholder="Create Password" value="<%= typeof password != 'undefined' ? password : '' %>" required> <br><br>
+                <label for="email">Email:</label>
+                <input type="email" name="email" placeholder="Enter Email" value="<%= typeof email != 'undefined' ? email : '' %>" required> <br><br>
 
-        <label for="password">Confirm Password:</label>
-        <input type="password" name="password2" placeholder="Confirm Password" value="<%= typeof password2 != 'undefined' ? password2 : '' %>" required> <br><br>
-        
-    <input type="submit" value="Register">
-     </form>
-     <p>Have an account? <a href="/login">Login</a></p>
+                <label for="password">Password:</label>
+                <input type="password" name="password" placeholder="Create Password" value="<%= typeof password != 'undefined' ? password : '' %>" required> <br><br>
+
+                <label for="password">Confirm Password:</label>
+                <input type="password" name="password2" placeholder="Confirm Password" value="<%= typeof password2 != 'undefined' ? password2 : '' %>" required> <br><br>
+                
+            <button class="waves-effect waves-light btn-large" type="submit">Register</button>
+            </form>
+            <p>Have an account? <a href="/login">Login</a></p>
+    </div>
+    </main>
 <%- include('./partials/footer.ejs') %>

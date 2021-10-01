@@ -1,21 +1,23 @@
 <%- include('./partials/header.ejs') %>
 <body>
     <%- include('./partials/navbar.ejs') %>
-    <div class="center-align">
+    <main>
+        <div class="container center-align">
         <h1>Challenges</h1>
         <h4>Practice and hone your skills through projects.</h4>
 
-        <ul>
+        <ul class="collection">
             <% for (let i = 0; i < challenges.length; i++){ %>
-                <li><h5><a href="/challenge/<%=challenges[i].id%>"><%= challenges[i].name %></a></h5>
+                <li class="collection-item grey lighten-5"><h5><a class="teal-text" href="/challenge/<%=challenges[i].id%>"><%= challenges[i].name %></a></h5>
+                    <p><%= challenges[i].description %></p>
                     <form action="/challenge/<%= challenges[i].id %>?_method=DELETE" method="POST">
                         <a class="waves-effect waves-light btn" href="/challenge/<%=challenges[i].id%>/edit"><i class="material-icons right">create</i>Edit</a>
                         <button class="waves-effect waves-light btn" type="submit"><i class="material-icons right">delete</i>Delete</button>
                     </form>
                 </li>
-                <br>
             <% } %>
         </ul>
-        <p>Have a challenge idea? <a href="/challenge/new">Create A New Challenge</a></p>
+        <p>Have a challenge idea? <a href="/challenge/new">Create A New Challenge</a></p> <br>
     </div>
+    </main>
 <%- include('./partials/footer.ejs') %>
