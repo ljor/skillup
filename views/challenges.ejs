@@ -7,10 +7,10 @@
 
         <ul>
             <% for (let i = 0; i < challenges.length; i++){ %>
-                <li><a href="/challenge/<%=challenges[i].id%>"><%= challenges[i].name %></a><br>
+                <li><h5><a href="/challenge/<%=challenges[i].id%>"><%= challenges[i].name %></a></h5>
                     <form action="/challenge/<%= challenges[i].id %>?_method=DELETE" method="POST">
-                        <a href="/challenge/<%=challenges[i].id%>/edit">Edit</a>
-                        <input type="submit" value="Delete">
+                        <a class="waves-effect waves-light btn" href="/challenge/<%=challenges[i].id%>/edit"><i class="material-icons right">create</i>Edit</a>
+                        <button class="waves-effect waves-light btn" type="submit"><i class="material-icons right">delete</i>Delete</button>
                     </form>
                 </li>
                 <br>
