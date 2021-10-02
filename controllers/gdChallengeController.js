@@ -4,7 +4,7 @@ const connectEnsureLogin = require('connect-ensure-login')
 const router = express.Router()
 
 // Models
-const GdChallenge = require('../models/challenge')
+const GdChallenge = require('../models/gdChallenge')
 const gDSeedData = require('../models/graphicDesignSeed')
 
 // Seed Route
