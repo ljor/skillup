@@ -7,19 +7,7 @@ const passport = require('passport')
 const flash = require('express-flash')
 const session = require('express-session')
 const connectEnsureLogin = require('connect-ensure-login')
-// const passportLocalMongoose = require('passport-local-mongoose')
 require('dotenv').config()
-
-// const initializePassport = require('./config/passport')
-// initializePassport(passport, (email) => {
-//     return User.findOne({email: email} === email)
-// },
-// (id) => {
-//     return User.findOne({id: id} === id)
-// }
-// )
-
-// require('./config/passport')
 
 const PORT = process.env.PORT
 

@@ -1,13 +1,11 @@
 const express = require('express')
 const router = express.Router()
-// const bcrypt = require('bcrypt')
 const passport = require('passport')
+const connectEnsureLogin = require('connect-ensure-login')
 
 const User = require('../models/user')
 
-router.get('/', (req,res) => {
-    console.log(req.session)
-    console.log(req.session.passport.user)
+router.get('/', connectEnsureLogin.ensureLoggedIn(), (req,res) => {
     res.render('index.ejs',{
         user: req.session.passport.user
     })
