@@ -27,7 +27,7 @@ router.get('/', (req, res) => {
 })
 
 // Create Route
-router.get('/new', (req, res) => {
+router.get('/new', connectEnsureLogin.ensureLoggedIn(), (req, res) => {
     res.render('new.ejs')
 })
 
@@ -52,7 +52,7 @@ router.get('/:id', (req, res) => {
 })
 
 // Edit Route
-router.get('/:id/edit', (req, res) => {
+router.get('/:id/edit', connectEnsureLogin.ensureLoggedIn(), (req, res) => {
     Challenge.findById(req.params.id, (err, challengeToEdit) => {
         if(err) {
             res.send(err)
@@ -80,7 +80,7 @@ router.put('/:id/edit', (req, res) => {
 })
 
 // Delete Route
-router.delete('/:id', (req, res) => {
+router.delete('/:id', connectEnsureLogin.ensureLoggedIn(), (req, res) => {
     Challenge.findByIdAndDelete(req.params.id, (err, challengeToDelete) => {
         if (err) {
             res.send(err)

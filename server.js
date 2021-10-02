@@ -47,22 +47,25 @@ db.on('disconnected', () => {console.log('Mongo disconnected')})
 app.use(express.static('public'))
 app.use(express.urlencoded({extended: false}))
 app.use(methodOverride('_method'))
+
+    // user sessions/authentication
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUnitialized: false,
-    cookie: {maxAge: 60 * 60 * 1000}
+    // cookie: {maxAge: 60 * 60 * 1000}
 }))
 app.use(passport.initialize())
 app.use(passport.session())
+    // passport local strategy
+ passport.use(User.createStrategy())
+
+    // messaging for login/registration errors
 app.use(flash())
 app.use((req, res, next) => {
     res.locals.message = req.flash();
     next()
 })
-
- // Passport Local Strategy
- passport.use(User.createStrategy())
 
  // Sessions
  passport.serializeUser(User.serializeUser())

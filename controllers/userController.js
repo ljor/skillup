@@ -2,12 +2,15 @@ const express = require('express')
 const router = express.Router()
 // const bcrypt = require('bcrypt')
 const passport = require('passport')
-const passportLocalMongoose = require('passport-local-mongoose')
 
 const User = require('../models/user')
 
 router.get('/', (req,res) => {
-    res.render('index.ejs')
+    console.log(req.session)
+    console.log(req.session.passport.user)
+    res.render('index.ejs',{
+        user: req.session.passport.user
+    })
 })
 
 router.get('/login', (req, res) => {
