@@ -1,4 +1,5 @@
 const express = require('express')
+const connectEnsureLogin = require('connect-ensure-login')
 const router = express.Router()
 
 // Models
@@ -25,7 +26,7 @@ router.get('/', (req, res) => {
 })
 
 // Create Route
-router.get('/new', (req, res) => {
+router.get('/new', connectEnsureLogin.ensureLoggedIn(), (req, res) => {
     res.render('new.ejs')
 })
 

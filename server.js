@@ -49,7 +49,7 @@ app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUnitialized: false,
-    // cookie: {maxAge: 60 * 60 * 1000}
+    cookie: {maxAge: 60 * 60 * 1000}
 }))
 app.use(express.urlencoded({extended: false}))
 app.use(passport.initialize())

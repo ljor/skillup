@@ -2,24 +2,24 @@
 <body id="landing-body">
     <main>
         <div class="container center-align">
-        <div id="cirlce-splash">
+        <div class="amber z-depth-2" id="circle-splash">
             <img src="/images/SkillUP-grey.png" alt="SkillUp" id="login-logo">
-            <h3>Improve skills through practice.</h3>
+            <h4 class="grey-text text-darken-4">Improve skills through practice.</h4>
         </div>
-        <div id="login">
-            <h2>Log In</h2>
+        <div class="z-depth-1" id="login">
+            <h2 class="white-text">Log In</h2>
             <p><%= message.error %></p>
             <p><%= message.success %></p>
             <form action="/" method="POST">
-                <label for="username">Username: </label>
-                <input type="text" name="username" placeholder="Enter Name" required> <br><br>
+                <label class="login-label" for="username">Username</label>
+                <input class="login-input" type="text" name="username" placeholder="Enter Name" required> <br><br>
 
-                <label for="password">Password:</label>
-                <input type="password" name="password" placeholder="Enter Password" required> <br><br>
+                <label class="login-label" for="password">Password</label>
+                <input type="password" class="login-input" name="password" placeholder="Enter Password" required> <br><br>
             
-            <input type="submit" value="Login">
-            </form>
-            <a href="/register">Register</a>
+                <button class="waves-effect waves-light btn-large" type="submit">Login</button>
+            </form> <br>
+            <p class="white-text">Don't have an account? <a class="amber-text" href="/register">Register</a></p>
         </div>
     </div>
 </main>

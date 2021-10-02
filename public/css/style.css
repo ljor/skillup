@@ -1,12 +1,16 @@
 html, body {
     min-height: 100%;
 }
+
 body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
   }
 
+  h4{ 
+    margin-top: 1%;
+}
   main {
     flex: 1 0 auto;
   }
@@ -20,17 +24,40 @@ body {
 }
 
 #circle-splash{
-    background-color: goldenrod;
-    height: 100px;
-    width: 100px;
+    position: relative;
+    padding: 4%;
+    height: 25vw;
+    width: 25vw;
     border-radius: 50%;
+    margin: auto;
+    margin-top: 3%;
+    z-index: 0;
+}
 
+#login {
+    background-color: rgba(50, 53, 53, 0.5);
+    width: 35vw;
+    height: 57vh;
+    margin: -8% auto auto auto;
+    padding: 5%;
 }
+
 #login-logo {
-    width: 45%;
+    margin-top: 5%;
+    width: 80%;
 }
+
 #nav-logo {
     width: 11.5%;
     margin-top: 6px;
     margin-left: 5%;
+}
+
+.login-label {
+    color: white !important;
+}
+
+.login-input {
+    background-color: white !important;
+    padding-left: 1em !important;
 }
