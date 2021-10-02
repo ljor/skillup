@@ -31,11 +31,17 @@ router.post('/register', (req, res) => {
         User.register({username: req.body.username, email: req.body.email}, req.body.password, (err, user) => {
             if (err) {
                 return res.render('/register')
-            } else {
-                res.redirect('/login')
             }
+            passport.authenticate('local')(req, res, () => {
+                res.redirect('/')
+            })
         })
     }
+})
+
+router.get('/logout', (req, res) => {
+    req.session.destroy()
+    res.redirect('/login')
 })
 
 module.exports = router

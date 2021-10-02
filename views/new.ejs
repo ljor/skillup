@@ -1,6 +1,6 @@
-<!DOCTYPE html>
 <%- include('./partials/header.ejs') %>
 <body>
+    <%- include('./partials/navbar.ejs') %>
     <main>
         <div class="container">
         <h1>Create New Challenge</h1>
@@ -13,14 +13,11 @@
 
             <label for="challenge">Challenge Details:</label>
             <input type="text" name="challenge" required> <br><br>
-
-            <label for="skill">Challenge Category:</label>
-            <input type="text" name="skill" required> <br><br>
         
-        <input type="submit" value="Create Challenge">
-        </form>
+            <button class="waves-effect waves-light btn-large" type="submit">Create Challenge</button><br><br>
         <a href="/challenge">Return to Challenges</a>
     </div>
+    <br>
     </main>
 
 <%- include('./partials/footer.ejs') %>
