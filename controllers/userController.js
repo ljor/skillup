@@ -27,7 +27,8 @@ router.get('/register', (req, res) => {
 
 router.post('/register', (req, res) => {
     if(req.body.password !== req.body.password2) {
-        console.log('passwords did not match')
+        req.flash('error', 'Password did not match')
+        res.redirect('/register')
     } else {
         User.register({username: req.body.username, email: req.body.email}, req.body.password, (err, user) => {
             if (err) {
