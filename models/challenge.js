@@ -8,5 +8,7 @@ const challengeSchema = new mongoose.Schema({
 })
 
 const Challenge = mongoose.model('Challenge', challengeSchema)
+const GdChallenge = mongoose.model('GdChallenge', challengeSchema)
 
 module.exports = Challenge
+module.exports = GdChallenge

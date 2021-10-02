@@ -1,0 +1,28 @@
+<%- include('./partials/header.ejs') %>
+<body>
+    <main>
+        <%- include('./partials/navbar.ejs') %>
+        <div class="container center-align">
+            <h1><%= challenge.name %></h1>
+            <h3 class="teal-text"><%= challenge.description %></h3>
+            <div>
+                <p class="flow-text"><%= challenge.challenge %></p>
+            </div>
+            <div class="row center-align">
+                <div class="col s12 m15">
+                <div class="card-panel grey darken-2">
+                    <span class="white-text"><i class="material-icons left">lightbulb_outline</i>Use whatever skills you feel best to complete the project. Try to challenge yourself! Explore new ways to achieve the goal or improve the finished project.
+                    </span>
+                </div>
+                </div>
+            </div>
+            <form action="/gdchallenge/<%= challenge.id %>?_method=DELETE" method="POST">
+                <a class="waves-effect waves-light btn" href="/gdchallenge/<%=challenge.id%>/edit"><i class="material-icons right">create</i>Edit</a>
+                <button class="waves-effect waves-orange grey lighten-2 grey-text text-darken-4 btn" type="submit"><i class="material-icons right">delete</i>Delete</button>
+            </form> <br>
+            <a href="/gdchallenge">Return to Challenges</a><br><br>
+
+    </div>
+    </main>
+
+<%- include('./partials/footer.ejs') %>

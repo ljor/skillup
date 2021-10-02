@@ -13,8 +13,9 @@ const PORT = process.env.PORT
 
 // Models
 const User = require('./models/user')
-const Challenge = require('./models/challenge')
-const seedData = require('./models/webDevSeed')
+// const Challenge = require('./models/challenge')
+// const GdChallenge = require('./models/challenge')
+// const seedData = require('./models/webDevSeed')
 
 // Database Setup
 const mongoURI = process.env.MONGODB_URI
@@ -62,6 +63,10 @@ app.use((req, res, next) => {
  // Controllers
 const challengeController = require('./controllers/challengeController.js')
 app.use('/challenge', challengeController)
+
+const gdChallengeController = require('./controllers/gdChallengeController.js')
+app.use('/gdchallenge', gdChallengeController)
+
 const userController = require('./controllers/userController')
  app.use('/', userController)
 

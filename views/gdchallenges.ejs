@@ -1,0 +1,23 @@
+<%- include('./partials/header.ejs') %>
+<body>
+    <%- include('./partials/navbar.ejs') %>
+    <main>
+        <div class="container center-align">
+        <h1>Challenges</h1>
+        <h4>Practice and hone your skills through projects.</h4>
+
+        <ul class="collection">
+            <% for (let i = 0; i < challenges.length; i++){ %>
+                <li class="collection-item grey lighten-5"><h5><a class="teal-text" href="/gdchallenge/<%=challenges[i].id%>"><%= challenges[i].name %></a></h5>
+                    <p><%= challenges[i].description %></p>
+                    <form action="/gdchallenge/<%= challenges[i].id %>?_method=DELETE" method="POST">
+                        <a class="waves-effect waves-light btn" href="/gdchallenge/<%=challenges[i].id%>/edit"><i class="material-icons right">create</i>Edit</a>
+                        <button class="waves-effect waves-orange grey lighten-2 grey-text text-darken-4 btn" type="submit"><i class="material-icons right">delete</i>Delete</button>
+                    </form>
+                </li>
+            <% } %>
+        </ul>
+        <p>Have a challenge idea? <a href="/gdchallenge/new">Create A New Challenge</a></p> <br>
+    </div>
+    </main>
+<%- include('./partials/footer.ejs') %>
